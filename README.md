@@ -11,3 +11,9 @@ The system will monitor safety metrics, such as O2 levels and flammable gases, a
   Flammable gas, vapor, or mist in excess of 10 percent of its lower flammable limit (LFL);
   Airborne combustible dust at a concentration that meets or exceeds its LFL;
   Atmospheric oxygen concentration below 19.5 percent or above 23.5 percent;
+
+#### Key Point Indicators
+1. EH&S (O2, Flammable Gases, AQI)
+2. Response Time to Maintenance Requests
+3. Job Completion Time
+4. Wrench Time
