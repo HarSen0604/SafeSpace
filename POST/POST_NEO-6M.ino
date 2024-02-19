@@ -42,35 +42,35 @@ void loop() {
       Serial.println(gps.location.rawLng().billionths);
 
       // Raw date in DDMMYY format (u32)
-      Serial.print("Raw date DDMMYY = ");
-      Serial.println(gps.date.value());
+      //Serial.print("Raw date DDMMYY = ");
+      //Serial.println(gps.date.value());
 
       // Year (2000+) (u16)
-      Serial.print("Year = ");
-      Serial.println(gps.date.year());
+      //Serial.print("Year = ");
+      //Serial.println(gps.date.year());
       // Month (1-12) (u8)
-      Serial.print("Month = ");
-      Serial.println(gps.date.month());
+      //Serial.print("Month = ");
+      //Serial.println(gps.date.month());
       // Day (1-31) (u8)
-      Serial.print("Day = ");
-      Serial.println(gps.date.day());
+      //Serial.print("Day = ");
+      //Serial.println(gps.date.day());
 
       // Raw time in HHMMSSCC format (u32)
-      Serial.print("Raw time in HHMMSSCC = ");
-      Serial.println(gps.time.value());
+      //Serial.print("Raw time in HHMMSSCC = ");
+      //Serial.println(gps.time.value());
 
       // Hour (0-23) (u8)
-      Serial.print("Hour = ");
-      Serial.println(gps.time.hour());
+      //Serial.print("Hour = ");
+      //Serial.println(gps.time.hour());
       // Minute (0-59) (u8)
-      Serial.print("Minute = ");
-      Serial.println(gps.time.minute());
+      //Serial.print("Minute = ");
+      //Serial.println(gps.time.minute());
       // Second (0-59) (u8)
-      Serial.print("Second = ");
-      Serial.println(gps.time.second());
+      //Serial.print("Second = ");
+      //Serial.println(gps.time.second());
       // 100ths of a second (0-99) (u8)
-      Serial.print("Centisecond = ");
-      Serial.println(gps.time.centisecond());
+      //Serial.print("Centisecond = ");
+      //Serial.println(gps.time.centisecond());
 
       // Raw speed in 100ths of a knot (i32)
       Serial.print("Raw speed in 100ths/knot = ");
@@ -116,8 +116,8 @@ void loop() {
       Serial.println(gps.satellites.value());
 
       // Horizontal Dim. of Precision (100ths-i32)
-      Serial.print("HDOP = ");
-      Serial.println(gps.hdop.value());
+      //Serial.print("HDOP = ");
+      //Serial.println(gps.hdop.value());
     }
   }
 }
