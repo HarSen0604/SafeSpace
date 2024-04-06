@@ -1,0 +1,73 @@
+Arduino:
+#include <ArduinoJson.h>
+
+bool sendJSONData = false;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    int receivedData = Serial.parseInt();
+    if (receivedData == 1) {
+      sendJSONData = true;
+    } else if (receivedData == 0) {
+      sendJSONData = false;
+    }
+  }
+
+  if (sendJSONData) {
+    sendJSON();
+    delay(10000); // Send JSON data every 10 seconds
+  }
+}
+
+void sendJSON() {
+  StaticJsonDocument<200> doc;
+  doc["key1"] = "value1";
+  doc["key2"] = "value2";
+  doc["key3"] = "value3";
+
+  String jsonString;
+  serializeJson(doc, jsonString);
+  Serial.println(jsonString);
+}
+
+
+Raspberry Pi:
+import serial
+import json
+import time
+
+def receive_data_from_arduino(ser):
+    data = ser.readline().decode('utf-8').rstrip()
+    return data
+
+def send_json_data(ser):
+    data = {
+        "key1": "value1",
+        "key2": "value2",
+        "key3": "value3"
+    }
+    json_data = json.dumps(data) + '\n'
+    ser.write(json_data.encode())
+
+# Establish serial connection
+ser = serial.Serial('/dev/ttyUSB0', 9600)  # Change ttyUSB0 to match your Arduino's serial port
+
+try:
+    while True:
+        # Read data from Arduino
+        received_data = receive_data_from_arduino(ser)
+        print("Received from Arduino:", received_data)
+        if received_data == "1":
+            send_json_data(ser)
+        elif received_data == "0":
+            # Stop sending data
+            pass
+        
+        time.sleep(1)
+
+except KeyboardInterrupt:
+    ser.close()
